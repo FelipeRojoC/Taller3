@@ -1,0 +1,122 @@
+@startuml
+
+class Instrumento {
+  - codigo: String
+  - precio: double
+  - stock: int
+  + getCodigo(): String
+  + getPrecio(): double
+  + getStock(): int
+}
+
+abstract class InstrumentoCuerda {
+  - String Tipo
+  - int NumeroCuerdas
+  - String Material
+  - String Tipo
+  + getTipoCuerda();
+  + getNumCuerdas();
+  + getMaterialConstruccion();
+  + getTipo();
+}
+
+class Guitarra {
+  + Guitarra();
+}
+
+class Bajo {
+  + Bajo();
+}
+
+class Violin {
+  + Violin();
+}
+
+class Arpa {
+  + Arpa();
+}
+
+abstract class InstrumentoPercusion {
+  - String Tipo
+  - String Material
+  - double Altura
+  + getTipoPercusion();
+  + getMaterialConstruccion();
+  + getAltura();
+}
+
+class Bongo {
+  + Bongo();
+}
+
+class Cajon {
+  + Cajon();
+}
+
+class CampanasTubulares {
+  + CampanasTubulares();
+}
+
+class Bombo {
+  + Bombo();
+}
+
+abstract class InstrumentoViento {
+  - String Material
+  + getMaterial();
+}
+
+class Trompeta {
+  + Trompeta();
+}
+
+class Saxofon {
+  + Saxofon();
+}
+
+class Clarinete {
+  + Clarinete();
+}
+
+class FlautaTraversa {
+  + FlautaTraversa();
+}
+
+class SystemImpl {
+  - ArrayList[] Instrumentos
+  + AgregarInstrumento(csv_prueba);
+  + VenderInstrumento(Codigo);
+  + ConsultarInventario(Tipo, Codigo);
+  + Terminar();
+}
+
+interface System {
+  + Menu();
+  + Opcion();
+  + AgregarInstrumento();
+  + VenderInstrumento();
+  + ConsultarInventario();
+  + CerrarSistema();
+}
+
+'Relaciones
+
+Instrumento <|-- InstrumentoCuerda : Contiene
+Instrumento <|-- InstrumentoPercusion : Contiene
+Instrumento <|-- InstrumentoViento : Contiene
+InstrumentoCuerda <|-- Guitarra : Contiene
+InstrumentoCuerda <|-- Bajo : Contiene
+InstrumentoCuerda <|-- Violin : Contiene
+InstrumentoCuerda <|-- Arpa : Contiene
+InstrumentoPercusion <|-- Bongo : Contiene
+InstrumentoPercusion <|-- Cajon : Contiene
+InstrumentoPercusion <|-- CampanasTubulares : Contiene
+InstrumentoPercusion <|-- Bombo : Contiene
+InstrumentoViento <|-- Trompeta : Contiene
+InstrumentoViento <|-- Saxofon : Contiene
+InstrumentoViento <|-- Clarinete : Contiene
+InstrumentoViento <|-- FlautaTraversa : Contiene
+SystemImpl *-- Instrumento: Contiene
+System o-- SystemImpl : Implementa
+
+@enduml

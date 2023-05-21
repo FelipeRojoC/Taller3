@@ -1,0 +1,114 @@
+@startuml
+
+class BeatTheRhythm {
+  - ArrayList[] Inventario
+  + AgregarInstrumento(Instrumento); void
+  + VenderInstrumento(Codigo); void
+  + ConsultarInventario(); ArrayList[] Instrumento
+}
+
+class Instrumento {
+  - String Codigo
+  - double Precio
+  - int Stock
+  + getCodigo();
+  + getPrecio();
+  + getStock();
+}
+
+class InstrumentoCuerda {
+  - String Tipo
+  - String TipoCuerda
+  - int NumeroCuerdas
+  - String Material
+  + getTipoCuerda();
+  + getNumCuerdas();
+  + getMaterialConstruccion();
+  + getTipo();
+}
+
+class Guitarra {
+  + Guitarra();
+}
+
+class Bajo {
+  + Bajo();
+}
+
+class Violin {
+  + Violin();
+}
+
+class Arpa {
+  + Arpa();
+}
+
+class InstrumentoPercusion {
+  - String Tipo
+  - String TipoPercusion
+  - String Material
+  - double Altura
+  + getTipoPercusion();
+  + getMaterialConstruccion();
+  + getAltura();
+}
+
+class Bongo {
+  + Bongo();
+}
+
+class Cajon {
+  + Cajon();
+}
+
+class CampanasTubulares {
+  + CampanasTubulares();
+}
+
+class Bombo {
+  + Bombo();
+}
+
+
+class InstrumentoViento {
+  - String Tipo
+  - String Material
+  + getMaterial();
+}
+
+class Trompeta {
+  + Trompeta();
+}
+
+class Saxofon {
+  + Saxofon();
+}
+
+class Clarinete {
+  + Clarinete();
+}
+
+class FlautaTraversa {
+  + FlautaTraversa();
+}
+
+' Relaciones
+
+BeatTheRhythm o-- Instrumento: tiene
+Instrumento <|-- InstrumentoCuerda
+Instrumento <|-- InstrumentoPercusion
+Instrumento <|-- InstrumentoViento
+InstrumentoCuerda <|-- Guitarra
+InstrumentoCuerda <|-- Bajo
+InstrumentoCuerda <|-- Violin
+InstrumentoCuerda <|-- Arpa
+InstrumentoPercusion <|-- Bongo
+InstrumentoPercusion <|-- Cajon
+InstrumentoPercusion <|-- CampanasTubulares
+InstrumentoPercusion <|-- Bombo
+InstrumentoViento <|-- Trompeta
+InstrumentoViento <|-- Saxofon
+InstrumentoViento <|-- Clarinete
+InstrumentoViento <|-- FlautaTraversa
+
+@enduml
